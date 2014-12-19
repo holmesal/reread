@@ -1,6 +1,24 @@
+<!-- <fa-app style="height: 300px"> -->
+  <!-- <fa-modifier fa-origin="[1,1]" fa-align="[1,1]" fa-translate="[0,translateY.get(),0]"> -->
+    <!-- <fa-surface fa-size="[100,100]" fa-background-color="'red'">hey</fa-surface> -->
+    <fa-scroll-view fa-pipe-from="scroller">
+      <fa-modifier fa-size="[undefined,undefined]">
+        <fa-grid-layout fa-options="gridOptions">
+          <fa-modifier 
+            ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'"
+            fa-size="[undefined,undefined]"
+            fa-translate="[0,translateY.get(),0]">
+            <fa-surface fa-background-color="'red'" fa-pipe-to="scroller">{{$index}}</fa-surface>
+          </fa-modifier>
+        </fa-grid-layout>
+      </fa-modifier>
+    </fa-scroll-view>
+  <!-- </fa-modifier> -->
+<!-- </fa-app> -->
+
 <div class="container">
 
-  <div ng-include="'components/navbar/navbar.html'"></div>
+  <!-- <div ng-include="'components/navbar/navbar.html'"></div> -->
 
   <div class="jumbotron">
     <h1>'Allo, 'Allo!</h1>

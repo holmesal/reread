@@ -1,4 +1,4 @@
-angular.module "generator", ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router']
+angular.module "generator", ['ngCookies', 'ngTouch', 'ngSanitize', 'ngAnimate', 'ngResource', 'famous.angular', 'ui.router']
   .config ($stateProvider, $urlRouterProvider) ->
     $stateProvider
       .state "home",

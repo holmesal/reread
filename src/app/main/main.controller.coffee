@@ -1,5 +1,10 @@
 angular.module "generator"
-  .controller "MainCtrl", ($scope) ->
+  .controller "MainCtrl", ($scope, $famous) ->
+
+    # famo.us imports
+    Transitionable = $famous['famous/transitions/Transitionable']
+    EventHandler = $famous['famous/core/EventHandler']
+
     $scope.awesomeThings = [
       {
         'title': 'AngularJS',
@@ -58,3 +63,23 @@ angular.module "generator"
     ]
     angular.forEach $scope.awesomeThings, (awesomeThing) ->
       awesomeThing.rank = Math.random()
+
+    $scope.scroller = new EventHandler
+
+    $scope.gridOptions =
+      dimensions: [3,2]
+
+
+    $scope.translateY = new Transitionable 0
+    $scope.enter = ($done) ->
+      $scope.translateY.set 600
+      $scope.translateY.set 0,
+        duration: 300
+        curve: 'easeInOut'
+      , $done
+
+    $scope.leave = ($done) ->
+      $scope.translateY.set 1000,
+        duration: 300
+        curve: 'easeInOut'
+      , $done
