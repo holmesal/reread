@@ -1,7 +1,31 @@
 <!-- <fa-app style="height: 300px"> -->
   <!-- <fa-modifier fa-origin="[1,1]" fa-align="[1,1]" fa-translate="[0,translateY.get(),0]"> -->
     <!-- <fa-surface fa-size="[100,100]" fa-background-color="'red'">hey</fa-surface> -->
-    <fa-scroll-view fa-pipe-from="scroller">
+    <fa-grid-layout fa-options="options.grid">
+      <fa-modifier fa-origin="[0.5,0.5]" fa-align="[0.5,0.5]">
+        <fa-surface fa-background-color="'zred'" fa-size="[true,true]" class="allo">
+          <img src="assets/images/yeoman.png">
+          <p>Allo Allo! Always a pleasure scaffolding your apps.</p>
+        </fa-surface>
+      </fa-modifier>
+      <fa-scroll-view fa-pipe-from="scroller" fa-options="options.scrollview">
+          <fa-view ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'" fa-index="$index">
+            <fa-modifier fa-size="[200,undefined]">
+              <fa-surface class="card" fa-pipe-to="scroller">
+                <p class="title">{{awesomeThing.title}}</p>
+                <p>{{awesomeThing.description}}</p>
+              </fa-surface>
+              <fa-modifier fa-origin="[0.5,0]" fa-align="[0.5,0]" fa-translate="[0,0,0]">
+                <fa-image-surface class="pic" fa-image-url="assets/images/{{awesomeThing.logo}}" fa-size="[60,true]"></fa-image-surface>
+              </fa-modifier>
+              <fa-modifier fa-origin="[0.5,0.1]" fa-align="[0.5,100]">
+                <fa-surface fa-size="[100,100]">hey</fa-surface>
+              </fa-modifier>
+            </fa-modifier>
+          </fa-view>
+      </fa-scroll-view>
+    </fa-grid-layout>
+    <!-- <fa-scroll-view fa-pipe-from="scroller">
       <fa-modifier fa-size="[undefined,undefined]">
         <fa-grid-layout fa-options="gridOptions">
           <fa-modifier 
@@ -12,7 +36,7 @@
           </fa-modifier>
         </fa-grid-layout>
       </fa-modifier>
-    </fa-scroll-view>
+    </fa-scroll-view> -->
   <!-- </fa-modifier> -->
 <!-- </fa-app> -->
 

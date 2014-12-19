@@ -66,8 +66,12 @@ angular.module "generator"
 
     $scope.scroller = new EventHandler
 
-    $scope.gridOptions =
-      dimensions: [3,2]
+    $scope.options =
+      grid:
+        dimensions: [1,2]
+      scrollview:
+        direction: 0
+        paginated: false
 
 
     $scope.translateY = new Transitionable 0
