@@ -1,5 +1,9 @@
-steps to integrate into generator-gulp-angular
+All the essentials for the adventurous frontend developer.
 
-* add famous-angular bower dependancy
-* [bower issue](https://github.com/Famous/famous/issues/396) - either wait until famo.us updates bower.json main property to point to script entry point, or manually add some dependancies to index.html
-* replace main.html for famo.us option
+##### [angular](http://angularjs.org)
+##### [famo.us](http://famo.us)
+##### [sheets](https://github.com/zackbrown/sheets)
+##### [coffeescript](coffeescript.org)
+##### [sass (node)](https://github.com/sass/node-sass)
+##### [gulp](http://gulpjs.com)
+##### [jade](http://jade-lang.com/)

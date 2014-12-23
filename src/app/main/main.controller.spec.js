@@ -3,7 +3,7 @@
 describe('controllers', function(){
   var scope;
 
-  beforeEach(module('generator'));
+  beforeEach(module('gentest'));
 
   beforeEach(inject(function($rootScope) {
   	scope = $rootScope.$new();

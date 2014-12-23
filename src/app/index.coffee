@@ -1,9 +1,9 @@
-angular.module "generator", [
+angular.module "futureSeed", [
     'ngCookies'
     'ngTouch'
     'ngSanitize'
     'ngAnimate'
-    'ngResource'
+    'restangular'
     'famous.angular'
     'ui.router'
     'ts.sheets']
@@ -46,6 +46,7 @@ angular.module "generator", [
         field: 'opacity',
         handlerFn: (element, payloadFn) ->
           isolate = $famous.getIsolate angular.element(element).scope()
+          console.log isolate
           isolate.modifier.opacityFrom payloadFn
       ,
         field: 'options',
@@ -55,6 +56,3 @@ angular.module "generator", [
 
     for handler in FAMOUS_FIELD_HANDLERS
       $mediaProvider.$registerFieldHandler handler.field, handler.handlerFn
-
-
-

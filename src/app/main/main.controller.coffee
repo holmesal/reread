@@ -1,5 +1,5 @@
-angular.module "generator"
-  .controller "MainCtrl", ($scope, $famous) ->
+angular.module "futureSeed"
+  .controller "MainCtrl", ($scope, $famous, $media) ->
 
     # famo.us imports
     Transitionable = $famous['famous/transitions/Transitionable']
@@ -87,3 +87,11 @@ angular.module "generator"
         duration: 300
         curve: 'easeInOut'
       , $done
+
+    $media.$sheet 'MainSheet',
+
+      sm:
+        '#wat':
+          opacity: ->
+            return 0.25
+      

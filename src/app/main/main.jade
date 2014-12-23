@@ -1,0 +1,41 @@
+div(ng-include="'components/navbar/navbar.html'")
+
+fa-view(ts-sheet="MainSheet")
+
+  fa-grid-layout(fa-options="options.grid")
+
+    fa-modifier#wat(
+      fa-origin="[0.5,0.5]"
+      fa-align="[0.5,0.5]"
+    )
+
+      fa-surface.allo(
+        fa-size="[true,true]"
+      )
+        img(src="assets/images/yeoman.png")
+        p Allo Allo! Always a pleasure scaffolding your apps.
+
+    fa-scroll-view(
+      fa-pipe-from="scroller"
+      fa-options="options.scrollview"
+    )
+      fa-view(
+        ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'"
+        fa-index="$index"
+      )
+        fa-modifier(
+          fa-size="[200,undefined]"
+        )
+          fa-surface.card(
+            fa-pipe-to="scroller"
+          )
+            p.title {{awesomeThing.title}}
+            p {{awesomeThing.description}}
+          fa-modifier(
+            fa-origin="[0.5,0]"
+            fa-align="[0.5,0]"
+          )
+            fa-image-surface.pic(
+              fa-image-url="assets/images/{{awesomeThing.logo}}"
+              fa-size="[60,true]"
+            )

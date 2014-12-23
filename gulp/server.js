@@ -38,6 +38,8 @@ gulp.task('serve', ['watch'], function () {
     '.tmp/{app,components}/**/*.css',
     '.tmp/{app,components}/**/*.js',
     'src/assets/images/**/*',
+    '.tmp/*.html',
+    '.tmp/{app,components}/**/*.html',
     'src/*.html',
     'src/{app,components}/**/*.html'
   ]);
@@ -48,7 +50,7 @@ gulp.task('serve:dist', ['build'], function () {
 });
 
 gulp.task('serve:e2e', ['wiredep', 'injector:js', 'injector:css'], function () {
-  browserSyncInit(['src', '.tmp'], null, []);
+  browserSyncInit(['.tmp', 'src'], null, []);
 });
 
 gulp.task('serve:e2e-dist', ['build'], function () {

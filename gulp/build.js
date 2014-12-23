@@ -62,7 +62,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('injector:js', ['scripts', 'injector:css'], function () {
-  return gulp.src('src/index.html')
+  return gulp.src(['src/index.html', '.tmp/index.html'])
     .pipe($.inject(gulp.src([
       '{src,.tmp}/{app,components}/**/*.js',
       '!src/{app,components}/**/*.spec.js',
@@ -74,15 +74,15 @@ gulp.task('injector:js', ['scripts', 'injector:css'], function () {
     .pipe(gulp.dest('src/'));
 });
 
-gulp.task('partials', function () {
-  return gulp.src('src/{app,components}/**/*.html')
+gulp.task('partials', ['consolidate'], function () {
+  return gulp.src(['src/{app,components}/**/*.html', '.tmp/{app,components}/**/*.html'])
     .pipe($.minifyHtml({
       empty: true,
       spare: true,
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'generator'
+      module: 'gentest'
     }))
     .pipe(gulp.dest('.tmp/inject/'));
 });
@@ -93,7 +93,7 @@ gulp.task('html', ['wiredep', 'injector:css', 'injector:js', 'partials'], functi
   var cssFilter = $.filter('**/*.css');
   var assets;
 
-  return gulp.src('src/*.html')
+  return gulp.src(['src/*.html', '.tmp/*.html'])
     .pipe($.inject(gulp.src('.tmp/inject/templateCacheHtml.js', {read: false}), {
       starttag: '<!-- inject:partials -->',
       ignorePath: '.tmp',
