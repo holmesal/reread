@@ -1,65 +1,28 @@
 angular.module "futureSeed"
-  .controller "MainCtrl", ($scope, $famous, $media) ->
+  .controller "MainCtrl", ($scope, $famous, $media, $state) ->
 
     # famo.us imports
     Transitionable = $famous['famous/transitions/Transitionable']
     EventHandler = $famous['famous/core/EventHandler']
 
-    $scope.awesomeThings = [
-      {
-        'title': 'AngularJS',
-        'url': 'https://angularjs.org/',
-        'description': 'HTML enhanced for web apps!',
-        'logo': 'angular.png'
-      },
-      {
-        'title': 'BrowserSync',
-        'url': 'http://browsersync.io/',
-        'description': 'Time-saving synchronised browser testing.',
-        'logo': 'browsersync.png'
-      },
-      {
-        'title': 'GulpJS',
-        'url': 'http://gulpjs.com/',
-        'description': 'The streaming build system.',
-        'logo': 'gulp.png'
-      },
-      {
-        'title': 'Jasmine',
-        'url': 'http://jasmine.github.io/',
-        'description': 'Behavior-Driven JavaScript.',
-        'logo': 'jasmine.png'
-      },
-      {
-        'title': 'Karma',
-        'url': 'http://karma-runner.github.io/',
-        'description': 'Spectacular Test Runner for JavaScript.',
-        'logo': 'karma.png'
-      },
-      {
-        'title': 'Protractor',
-        'url': 'https://github.com/angular/protractor',
-        'description': 'End to end test framework for AngularJS applications built on top of WebDriverJS.',
-        'logo': 'protractor.png'
-      },
-      {
-        'title': 'jQuery',
-        'url': 'http://jquery.com/',
-        'description': 'jQuery is a fast, small, and feature-rich JavaScript library.',
-        'logo': 'jquery.jpg'
-      },
-      {
-        'title': 'Sass (Node)',
-        'url': 'https://github.com/sass/node-sass',
-        'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
-        'logo': 'node-sass.png'
-      },
-      {
-        'title': 'CoffeeScript',
-        'url': 'http://coffeescript.org/',
-        'description': 'CoffeeScript, \'a little language that compiles into JavaScript\'.',
-        'logo': 'coffeescript.png'
-      }
+    $scope.colors = ['#7B68EE', '#9400D3', '#FF4500', '#00BFFF', '#5F9EA0']
+
+    $scope.projects = [
+        'name': 'something',
+        'icon': 'octoface',
+        'state': 'particles'
+      ,
+        'name': 'that\'s',
+        'icon': 'microscope',
+        'state': 'else'
+      ,
+        'name': 'worth',
+        'icon': 'broadcast',
+        'state': 'worth'
+      ,
+        'name': 'showing',
+        'icon': 'package',
+        'state': 'showing'
     ]
     angular.forEach $scope.awesomeThings, (awesomeThing) ->
       awesomeThing.rank = Math.random()
@@ -68,7 +31,7 @@ angular.module "futureSeed"
 
     $scope.options =
       grid:
-        dimensions: [1,2]
+        dimensions: [2,2]
       scrollview:
         direction: 0
         paginated: false
@@ -76,17 +39,20 @@ angular.module "futureSeed"
 
     $scope.translateY = new Transitionable 0
     $scope.enter = ($done) ->
-      $scope.translateY.set 600
+      $scope.translateY.set 3.14
       $scope.translateY.set 0,
         duration: 300
         curve: 'easeInOut'
       , $done
 
     $scope.leave = ($done) ->
-      $scope.translateY.set 1000,
+      $scope.translateY.set 3.14,
         duration: 300
         curve: 'easeInOut'
       , $done
+
+    $scope.changeState = (state) ->
+      $state.go state
 
     $media.$sheet 'MainSheet',
 

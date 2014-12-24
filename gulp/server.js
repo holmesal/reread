@@ -8,6 +8,8 @@ var browserSync = require('browser-sync');
 
 var middleware = require('./proxy');
 
+var qrcode = require('qrcode-terminal');
+
 function browserSyncInit(baseDir, files, browser) {
   browser = browser === undefined ? 'default' : browser;
 
@@ -26,6 +28,8 @@ function browserSyncInit(baseDir, files, browser) {
       routes: routes
     },
     browser: browser
+  }, function(err, bs){
+    qrcode.generate(bs.options.urls.external);
   });
 
 }

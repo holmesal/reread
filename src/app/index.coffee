@@ -15,6 +15,10 @@ angular.module "futureSeed", [
         url: "/",
         templateUrl: "app/main/main.html",
         controller: "MainCtrl"
+      .state "particles",
+        url: "/particles",
+        templateUrl: "app/particles/particles.html",
+        controller: "ParticlesCtrl"
 
     $urlRouterProvider.otherwise '/'
 

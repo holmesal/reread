@@ -1,7 +1,11 @@
-fa-modifier(
-    fa-size='[20,20]'
-    fa-opacity="0.3"
-  )
-    fa-surface(
-      fa-background-color="'#575757'"
+fa-view(
+  ng-controller="NavbarCtrl"
+)
+  fa-modifier(
+      fa-size='[50,50]'
+      fa-opacity="0.3"
     )
+      fa-surface(
+        fa-background-color="'#575757'"
+        fa-click="goHome()"
+      )

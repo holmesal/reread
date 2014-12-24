@@ -6,20 +6,34 @@
   right: 0;
 }
 
-.allo {
-  text-align: center;
-}
+// .project {
+//   color: white;
+//   .icon {
+//     color: white;
+//     font-size: 40px;
+//   }
 
-.card {
-  text-align: center;
-  padding: 10px;
-  padding-top: 70px;
-  box-sizing: border-box;
+//   .name {
 
-  .title {
-    font-size: 16pt;
-  }
-}
+//   }
+  
+// }
+
+
+// .allo {
+//   text-align: center;
+// }
+
+// .card {
+//   text-align: center;
+//   padding: 10px;
+//   padding-top: 70px;
+//   box-sizing: border-box;
+
+//   .title {
+//     font-size: 16pt;
+//   }
+// }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -139,6 +153,9 @@ a {
 hr {
   clear: both;
 }
+
 // injector
 @import 'fonts.scss';
+@import 'particles/particles.sass';
+@import 'main/main.sass';
 // endinjector
